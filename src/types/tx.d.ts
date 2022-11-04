@@ -34,3 +34,17 @@ interface Attribute {
   Key: string
   Value: string
 }
+
+interface TaxData {
+  TreasuryTaxCapDenom: {
+    Result: string
+  }
+  TreasuryTaxRate: {
+    Result: string
+  }
+}
+
+interface Tax {
+  rate?: string
+  cap?: string
+}

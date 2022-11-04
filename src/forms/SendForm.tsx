@@ -92,6 +92,7 @@ const SendForm = ({ tab, shuttleList }: Props) => {
   const { to, value, token, memo: $memo, network } = values
   const amount = toAmount(value)
   const symbol = getSymbol(token)
+  const uusd = token === "uusd" ? amount : undefined
   const isEthereum = ethers.utils.isAddress(to)
   const isTerra = AccAddress.validate(to)
 
@@ -235,7 +236,12 @@ const SendForm = ({ tab, shuttleList }: Props) => {
 
   return (
     <Container sm>
-      <FormContainer {...container} label="send" parseTx={parseTx}>
+      <FormContainer
+        {...container}
+        label="send"
+        pretax={uusd}
+        parseTx={parseTx}
+      >
         <FormGroup {...fields[Key.network]} />
         <FormGroup {...fields[Key.to]} />
         <FormGroup {...fields[Key.value]} />

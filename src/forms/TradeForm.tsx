@@ -104,6 +104,7 @@ const TradeForm = ({ type }: { type: TradeType }) => {
   const symbol = getSymbol(token)
   const symbol1 = getSymbol(token1)
   const symbol2 = getSymbol(token2)
+  const uusd = { [TradeType.BUY]: amount1, [TradeType.SELL]: amount2 }[type]
 
   /* form:focus input on select asset */
   const value1Ref = useRef<HTMLInputElement>(null)
@@ -374,6 +375,7 @@ const TradeForm = ({ type }: { type: TradeType }) => {
   const parseTx = isLimitOrder ? parseLimitOrder : parseTrade
 
   const container = { attrs, contents, data, disabled, messages, parseTx }
+  const tax = { pretax: uusd, deduct: type === TradeType.SELL }
 
   return (
     <WithPriceChart token={token}>
@@ -381,7 +383,7 @@ const TradeForm = ({ type }: { type: TradeType }) => {
         <DelistModal type={delist[token].type} tokens={[token]} key={token} />
       )}
 
-      <FormContainer {...container}>
+      <FormContainer {...container} {...tax}>
         <div className={styles.header}>
           <ToggleLimitOrder state={limitOrderState} />
           {!isLimitOrder && <SetSlippageTolerance />}
