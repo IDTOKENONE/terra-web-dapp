@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ReactNode, HTMLAttributes, FormEvent } from "react"
 import { useLocation } from "react-router-dom"
-import { Msg, Fee } from "@terra-money/terra.js"
+import { Msg } from "@terra-money/terra.js"
 import { useWallet } from "@terra-money/wallet-provider"
 import { TxResult } from "@terra-money/wallet-provider"
 import { UserDenied, CreateTxFailed } from "@terra-money/wallet-provider"
@@ -104,12 +104,10 @@ export const Component = ({ data: msgs, memo, gasAdjust, ...props }: Props) => {
     setSubmitted(true)
 
     try {
-      const { gas, gasPrice, amount } = fee
       const txOptions = {
         msgs,
         memo,
-        gasPrices: `${gasPrice}uusd`,
-        fee: new Fee(gas, { uusd: amount }),
+        isClassic: true,
         purgeQueue: true,
       }
 
