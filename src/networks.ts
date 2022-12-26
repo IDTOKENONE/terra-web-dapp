@@ -7,8 +7,10 @@ const networks: Record<string, MirrorNetworkInfo> = {
     name: "classic",
     chainID: "columbus-5",
     lcd: "https://columbus-lcd.terra.dev",
-    contract: "https://whitelist.mirror.finance/columbus.json",
+    contract:
+      "https://ipfs.io/ipfs/QmdS3CcQhYkxYwo63gnrXtpPMUQZHaVrJb2NDETsk9WByU/columbus.json",
     mantle: "https://columbus-mantle.terra.dev/",
+    walletconnectID: 2,
     shuttle: {
       ethereum: "terra13yxhrk08qvdf5zdc9ss5mwsg5sf7zva9xrgwgc",
       bsc: "terra1g6llg3zed35nd3mh9zx6n64tfw3z67w2c48tn2",
@@ -29,6 +31,7 @@ const networks: Record<string, MirrorNetworkInfo> = {
     lcd: "https://bombay-lcd.terra.dev",
     contract: "https://whitelist.mirror.finance/bombay.json",
     mantle: "https://bombay-mantle.terra.dev/",
+    walletconnectID: 0,
     shuttle: {
       ethereum: "terra10a29fyas9768pw8mewdrar3kzr07jz8f3n73t3",
       bsc: "terra1paav7jul3dzwzv78j0k59glmevttnkfgmgzv2r",
@@ -49,6 +52,7 @@ const networks: Record<string, MirrorNetworkInfo> = {
     lcd: "https://moonshine-lcd.terra.dev",
     contract: "https://whitelist.mirror.finance/moonshine.json",
     mantle: "https://moonshine-mantle.terra.dev",
+    walletconnectID: 0,
     shuttle: {
       ethereum: "",
       bsc: "",

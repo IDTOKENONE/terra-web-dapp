@@ -586,6 +586,7 @@ const MintForm = ({ position, type }: Props) => {
     label,
     disabled,
     data,
+    pretax: token1 === "uusd" ? (edit ? diffCollateral : amount1) : "0",
     deduct: close || (edit && lt(diffCollateral, 0)),
     gasAdjust: 2,
     parseTx,
